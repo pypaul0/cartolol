@@ -8,6 +8,9 @@ module.exports = {
     selectAll: async () => {
         return await teamModel.find()
     },
+    select: async (abbreviation) => {
+        return await teamModel.findOne({abbreviation: abbreviation})
+    },
     insert: async (team) => {
         team = new teamModel(team)
         await team.save()
